@@ -23,13 +23,22 @@ describe("sayHello", function() {
         expect(typeof sayHello()).toBe("string");
     });
     it('should return the string "Hello, Jane!" when executed', function() {
-        expect(sayHello()).toBe("Hello, Jane!");
+        expect(sayHello("Jane")).toBe("Hello, Jane!");
     });
     it('should return the string "Hello, Alex!" when executed', function() {
         expect(sayHello("Alex")).toBe("Hello, Alex!");
     });
-    it('should return the string "Hello, Jane!" when executed', function() {
+    it('should return the string "Hello, Pat!" when executed', function() {
         expect(sayHello("Pat")).toBe("Hello, Pat!");
+    });
+    it('should return the string "Hello, World!" when executed', function() {
+        expect(sayHello()).toBe("Hello, World!");
+    });
+    it('should return the string "Hello, World!" when executed', function() {
+        expect(sayHello(true)).toBe("Hello, World!");
+    });
+    it('should return the string "Hello, World!" when executed', function() {
+        expect(sayHello(false)).toBe("Hello, World!");
     });
     it("should never return 'undefined' when called", function() {
         expect(sayHello()).not.toBe(undefined);
@@ -37,11 +46,29 @@ describe("sayHello", function() {
 })
 
 // Exercise 2
-/*Step 1: Add another (tiny) assertion! In tests.js, assert that sayHello("Pat") returns "Hello, Pat!". Since our tests should be super simple, the assertion should be expect(sayHello("Pat")).toBe("Hello, Pat!")
-Step 2: Run all tests and make sure that this newly added test is red and failing.
-Step 3: Again, you may feel the urge to jump to the "correct" answer already. Let's stay on target. Write just enough code to green the test. For this case, just enough code means adding another conditional such that if input === "Pat", then the function should have return "Hello, Pat!".
-Step 4: Run all tests. Does each test turn green? If so, then we can proceed.
-Step 5: Refactor! It's definitely refactoring time!
+/*Exercise #8 "Repeat" step (where we look for additional tests to add)
+
+Next, add expect(sayHello(true)).toBe("Hello, World!") to the tests.js file. Refresh to see the failing red test.
+Add just enough code to code.js to green that latest test. if (input === true) then return "Hello, World!"
+
+Now, add expect(sayHello(false)).toBe("Hello, World!") to the tests.js file. Refresh to see the failing test.
+Add just enough code to code.js to green this test.
+
+Once all the tests are green, identify refactor opportunities and refactor your solution.
+
+Are there any other edge cases you want to write a test for? You have a green light to add more of your own tests to "drive" the implementation.
+Some edge cases to consider. What if:
+
+the input is null?
+
+the input is an empty string like ""?
+
+the input is a number like 2.3?
+
+the input is a number inside a string like "5"?
+
+the input is another data type like an array, object, or function?
+
 
 .*/
 
