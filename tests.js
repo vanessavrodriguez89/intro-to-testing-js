@@ -43,33 +43,70 @@ describe("sayHello", function() {
     it("should never return 'undefined' when called", function() {
         expect(sayHello()).not.toBe(undefined);
     });
+    it("should never return 'null' when called", function() {
+        expect(sayHello(null)).not.toBe(null);
+    });
+    it('should never return the string "Hello, World!" with an empty string', function() {
+        expect(sayHello("")).not.toBe("Hello, World!");
+    });
+    it('should return the string "Hello, World!" when executed with a number', function() {
+        expect(sayHello(2.3)).toBe("Hello, World!");
+    });
+    it('should never return the string "Hello, World!" when executed with a number inside of a string', function() {
+        expect(sayHello("5")).not.toBe("Hello, World!");
+    });
+    it('should never return the string "Hello, World!" when executed with an array', function() {
+        expect(sayHello(["bananas", "apples", "oranges"])).not.toBe("Hello, World!");
+    });
 })
 
-// Exercise 2
-/*Exercise #8 "Repeat" step (where we look for additional tests to add)
+describe("isFive", function() {
+    it("should be a defined function", function() {
+        expect(typeof isFive).toBe("function");
+    })
+    it("should return a boolean no matter what the input is", function() {
+        expect(typeof isFive(true)).toBe("boolean");
+        expect(typeof isFive("string")).toBe("boolean");
+        expect(typeof isFive("number")).toBe("boolean");
+        expect(typeof isFive(undefined)).toBe("boolean");
+        expect(typeof isFive(null)).toBe("boolean");
+        expect(typeof isFive(["array1", "array2", "array3"])).toBe("boolean");
+    })
+})
 
-Next, add expect(sayHello(true)).toBe("Hello, World!") to the tests.js file. Refresh to see the failing red test.
-Add just enough code to code.js to green that latest test. if (input === true) then return "Hello, World!"
+describe("isEven", function() {
+    it("should be a defined function", function() {
+        expect(typeof isEven).toBe("function");
+    });
+    it("should only be a number", function() {
+        expect(typeof isEven()).toBe("number");
+    })
+})
 
-Now, add expect(sayHello(false)).toBe("Hello, World!") to the tests.js file. Refresh to see the failing test.
-Add just enough code to code.js to green this test.
-
-Once all the tests are green, identify refactor opportunities and refactor your solution.
-
-Are there any other edge cases you want to write a test for? You have a green light to add more of your own tests to "drive" the implementation.
-Some edge cases to consider. What if:
-
-the input is null?
-
-the input is an empty string like ""?
-
-the input is a number like 2.3?
-
-the input is a number inside a string like "5"?
-
-the input is another data type like an array, object, or function?
+describe("isVowel", function () {
+    it("should always return a boolean", function () {
+        expect(typeof isVowel()).toBe("boolean")
+    })
+})
 
 
+/*}
+Start with the smallest tests first.
+Write just enough code to green the test
+Build up functionality one small piece at a time.
+Commit your work to git at each step.
+Write each assertion, confirm the test fails, write only enough code to green that specific test, refactor, then repeat.
+Remember to add and then "green" one test at a time. That's part of the fundamental approach of TDD.
+Assert that:
+isVowel always returns a boolean
+isVowel("a") returns true
+isVowel("A") returns true
+isVowel("y") returns false
+isVowel(4) returns false
+isVowel(true) or isVowel(false) both return false
+isVowel("banana") returns false
+isVowel() returns false
+Refactor when appropriate and possible.
+Repeat until the tests are robust and the function works as intended.
+Commit your work to git and push to GitHub before moving forward.
 .*/
-
-
