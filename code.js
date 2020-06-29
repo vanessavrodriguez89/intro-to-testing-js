@@ -54,3 +54,11 @@ console.log(isEven(5));
 console.log(isEven(-2));
 console.log(isEven(""));
 console.log(isEven());
+
+function isVowel(input2) {
+    if (input2 === "a" || "A") {
+        return true
+    } else {
+        return false
+    }
+}
